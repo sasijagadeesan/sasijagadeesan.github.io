@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://sasijagadeesan.github.io/sitemap.xml
