@@ -17,7 +17,7 @@ ORCID = "0000-0003-3977-5367"
 
 
 PAPERS = [
-    # 1. Cells 2025 -- existing page, not regenerated, but included in papers.csv for completeness
+    # 1
     dict(
         slug="adult-human-spinal-cord-nspcs",
         title="Transcriptomic and Functional Landscape of Adult Human Spinal Cord NSPCs Compared to iPSC-Derived Neural Progenitor Cells",
@@ -31,7 +31,29 @@ PAPERS = [
         oa="Yes (MDPI, open access)", pub_type="Original research",
         primary_category="Human Spinal Cord Biology & Regenerative Neuroscience",
         secondary_categories=["Neurosurgery & Clinical / Translational Research"],
-        existing=True,
+        overview=[
+            "This study directly compared bona fide neural stem/progenitor cells isolated from the adult human spinal cord with syngeneic induced pluripotent stem cell-derived neural progenitor populations regionalized toward either spinal cord or forebrain identities.",
+            "RNA sequencing and functional differentiation assays were used to determine how closely engineered iPSC-derived neural progenitors reproduce the transcriptomic and neurogenic properties of primary adult human spinal cord NSPCs.",
+        ],
+        findings=[
+            "iPSC-derived neural progenitor populations were molecularly distinct from bona fide adult human spinal cord NSPCs.",
+            "Forebrain-patterned iPSC-derived NSPCs showed greater similarity to bona fide spinal cord NSPCs in pathways related to neurogenesis, axon guidance, synaptic signaling, and neuronal differentiation.",
+            "Spinal cord-patterned iPSC-derived NSPCs showed greater heterogeneity, suboptimal regional specification, and enrichment of neural crest- and immune-associated transcriptional programs.",
+            "Functional differentiation assays supported the transcriptomic findings, with stronger neurogenic potential observed in the forebrain-patterned iPSC-derived population.",
+            "Donor-specific biological variation influenced how closely iPSC-derived NSPCs aligned with primary spinal cord NSPCs.",
+        ],
+        why_matters="The study provides a direct human benchmark for evaluating whether iPSC-derived neural progenitors faithfully reproduce the biology of primary adult human spinal cord progenitor populations. The findings are relevant to spinal cord injury, regenerative medicine, autologous cell therapy, neural progenitor engineering, and the interpretation of donor-specific variability in human neural cell models.",
+        questions=[
+            "How similar are iPSC-derived neural progenitor cells to bona fide adult human spinal cord NSPCs?",
+            "Do spinal cord-patterned iPSC-derived progenitors accurately reproduce primary adult spinal cord progenitor biology?",
+            "How does donor variability influence neural progenitor transcriptomic identity and differentiation?",
+            "What transcriptomic pathways distinguish primary spinal cord NSPCs from engineered iPSC-derived neural progenitors?",
+            "Which human cell populations provide the most biologically relevant benchmark for regenerative spinal cord research?",
+        ],
+        topics=["Adult human spinal cord", "Neural stem/progenitor cells", "NSPCs", "iPSC", "Neural progenitor cells",
+                "Spinal cord injury", "Regenerative medicine", "Transcriptomics", "RNA sequencing", "Neurogenesis",
+                "Axon guidance", "Neural differentiation", "Donor variability", "Patient-specific variability",
+                "Autologous cell therapy", "Syngeneic comparison"],
     ),
     # 2
     dict(
@@ -42,7 +64,7 @@ PAPERS = [
         role_note="First author",
         journal="International Journal of Molecular Sciences", year="2025", volume="26", issue="8", pages="3874",
         pub_date="2025-04-19",
-        doi="10.3390/ijms26083874", pmid="", pmcid="PMC12028285",
+        doi="10.3390/ijms26083874", pmid="40332538", pmcid="PMC12028285",
         publisher_url="https://www.mdpi.com/1422-0067/26/8/3874",
         oa="Yes (MDPI, open access)", pub_type="Review article",
         primary_category="Human Spinal Cord Biology & Regenerative Neuroscience",
@@ -67,15 +89,15 @@ PAPERS = [
     # 3
     dict(
         slug="patient-specific-interneuron-precision-model",
-        title="Rebuilding Spinal Circuit Function After Spinal Cord Injury Through a Patient-Specific Interneuron Precision Model",
+        title="Rebuilding spinal circuit function after spinal cord injury through a patient-specific interneuron precision model",
         authors_full=["Sasi Kumar Jagadeesan", "Ryan Vimukthie Sandarage", "Eve Chung Tsai"],
         authors_citation="Jagadeesan SK, Sandarage RV, Tsai EC",
         role_note="First author",
-        journal="Frontiers in Neuroscience", year="2026", volume="", issue="", pages="1745993",
-        pub_date="2026",
+        journal="Frontiers in Neuroscience", year="2026", volume="20", issue="", pages="1745993",
+        pub_date="2026-06-03",
         doi="10.3389/fnins.2026.1745993", pmid="42318198", pmcid="PMC13272048",
         publisher_url="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2026.1745993/full",
-        oa="Yes (Frontiers, open access)", pub_type="Review / perspective (exact Frontiers article-type label unconfirmed)",
+        oa="Yes, CC BY", pub_type="Hypothesis and Theory",
         primary_category="Human Spinal Cord Biology & Regenerative Neuroscience",
         secondary_categories=["Neurosurgery & Clinical / Translational Research"],
         overview=[
@@ -85,7 +107,7 @@ PAPERS = [
         findings=[
             "Spinal interneurons are framed as central determinants of functional recovery after spinal cord injury, integrating excitatory and inhibitory inputs that drive locomotor, postural, and autonomic control.",
             "The paper synthesizes how developmental patterning programs establish interneuron diversity and network organization.",
-            "The authors propose the Patient-Specific Interneuron Precision Model (PIPM), a feedback-informed conceptual framework linking patient-specific biological states — such as progenitor competence and morphogen accessibility — to circuit-level recovery strategies.",
+            "The authors propose the Patient-Specific Interneuron Precision Model (PIPM), a feedback-informed conceptual framework linking patient-specific biological states — such as progenitor competence and morphogen sensitivity — to circuit-level recovery strategies.",
         ],
         why_matters="Offers a conceptual framework for thinking about spinal circuit restoration beyond cell replacement alone, relevant to designing future interneuron-targeted regenerative strategies.",
         questions=[
@@ -102,12 +124,12 @@ PAPERS = [
         authors_full=["Sasi Kumar Jagadeesan", "Ryan Vimukthie Sandarage", "Eve Chung Tsai"],
         authors_citation="Jagadeesan SK, Sandarage RV, Tsai EC",
         role_note="First author",
-        journal="Neurotrauma Reports", year="2026", volume="", issue="", pages="",
+        journal="Neurotrauma Reports", year="2026", volume="7", issue="", pages="2689288X261475797",
         pub_date="2026-08-17",
-        doi="10.1177/2689288X261475797", pmid="", pmcid="PMC13482055",
+        doi="10.1177/2689288X261475797", pmid="42614516", pmcid="PMC13482055",
         publisher_url="https://journals.sagepub.com/doi/10.1177/2689288X261475797",
-        oa="Likely yes (Neurotrauma Reports is an open-access journal); unconfirmed for this article",
-        pub_type="Original research (cohort study)",
+        oa="Yes",
+        pub_type="Research article / original research",
         primary_category="Neurosurgery & Clinical / Translational Research",
         secondary_categories=["Human Spinal Cord Biology & Regenerative Neuroscience"],
         overview=[
@@ -134,10 +156,10 @@ PAPERS = [
         authors_citation="Jagadeesan SK, Sandarage RV, Tsai EC",
         role_note="First author",
         journal="Biopreservation and Biobanking", year="2026", volume="", issue="", pages="",
-        pub_date="2026",
+        pub_date="2026-04-21",
         doi="10.1177/19475535261443118", pmid="42011116", pmcid="",
         publisher_url="https://doi.org/10.1177/19475535261443118",
-        oa="Unconfirmed", pub_type="Protocol / methods paper (institutional governance framework)",
+        oa="Unconfirmed", pub_type="Review",
         primary_category="Neurosurgery & Clinical / Translational Research",
         secondary_categories=["Human Spinal Cord Biology & Regenerative Neuroscience"],
         overview=[
@@ -192,7 +214,7 @@ PAPERS = [
     # 7
     dict(
         slug="ehr-machine-learning-icu-clinical-deterioration",
-        title="Development and Internal Validation of an EHR Machine Learning Model for Clinical Deterioration in ICU Linked Inpatients",
+        title="Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients",
         authors_full=["Sasi Jagadeesan", "Pritam Kumar Panda", "Ryan Vimukthie Sandarage", "Eve C. Tsai"],
         authors_citation="Jagadeesan S, Panda PK, Sandarage RV, Tsai EC",
         role_note="First author",
@@ -322,15 +344,15 @@ PAPERS = [
     # 11
     dict(
         slug="yap1-cox5a-npr3-oxidative-stress-yeast",
-        title="Hydrogen Peroxide Sensitivity Connects the Activity of COX5A and NPR3 to the Regulation of YAP1 Expression",
+        title="Hydrogen peroxide sensitivity connects the activity of COX5A and NPR3 to the regulation of YAP1 expression",
         authors_full=["Sarah Takallou", "Maryam Hajikarimlou", "Mustafa Al-Gafari", "Jiashu Wang", "Sasi Kumar Jagadeesan",
                       "Thomas David Daniel Kazmirchuk", "Houman Moteshareie", "Alex Mulet Indrayanti", "Taha Azad",
                       "Martin Holcik", "Bahram Samanfar", "Myron Smith", "Ashkan Golshani"],
         authors_citation="Takallou S, Hajikarimlou M, Al-Gafari M, Wang J, Jagadeesan SK, Kazmirchuk TDD, Moteshareie H, Indrayanti AM, Azad T, Holcik M, Samanfar B, Smith M, Golshani A",
         role_note="Contributing author (5th of 13 authors); this study was led by Takallou S et al.",
-        journal="The FASEB Journal", year="2024", volume="", issue="", pages="",
+        journal="The FASEB Journal", year="2024", volume="38", issue="5", pages="e23439",
         pub_date="2024",
-        doi="10.1096/fj.202300978RR", pmid="", pmcid="",
+        doi="10.1096/fj.202300978RR", pmid="38416461", pmcid="",
         publisher_url="https://faseb.onlinelibrary.wiley.com/doi/full/10.1096/fj.202300978RR",
         oa="Unconfirmed (FASEB Journal is generally open access)", pub_type="Original research",
         primary_category="Yeast Genetics & Cellular Stress Biology",
@@ -352,15 +374,15 @@ PAPERS = [
     # 12
     dict(
         slug="yap1-nce102-cda2-bcs1-oxidative-stress-yeast",
-        title="Oxidative Stress-Induced YAP1 Expression Is Regulated by NCE102, CDA2, and BCS1",
+        title="Oxidative stress-induced YAP1 expression is regulated by NCE102, CDA2, and BCS1",
         authors_full=["Sarah Takallou", "Maryam Hajikarimlou", "Mustafa Al-gafari", "Jiashu Wang", "Sasi Kumar Jagadeesan",
-                      "Thomas David Daniel Kazmirchuk", "Csenge Arnoczki", "Houman Moteshareie", "Kamaledin B. Said",
+                      "Thomas David Daniel Kazmirchuk", "Christina Arnoczki", "Houman Moteshareie", "Kamaledin B. Said",
                       "Taha Azad", "Martin Holcik", "Bahram Samanfar", "Myron Smith", "Ashkan Golshani"],
         authors_citation="Takallou S, Hajikarimlou M, Al-gafari M, Wang J, Jagadeesan SK, Kazmirchuk TDD, Arnoczki C, Moteshareie H, Said KB, Azad T, Holcik M, Samanfar B, Smith M, Golshani A",
         role_note="Contributing author (5th of 14 authors); this study was led by Takallou S et al.",
-        journal="The FEBS Journal", year="2024", volume="291", issue="", pages="4602–4618",
+        journal="The FEBS Journal", year="2024", volume="291", issue="20", pages="4602–4618",
         pub_date="2024",
-        doi="10.1111/febs.17243", pmid="", pmcid="",
+        doi="10.1111/febs.17243", pmid="39102301", pmcid="",
         publisher_url="https://febs.onlinelibrary.wiley.com/doi/10.1111/febs.17243",
         oa="Unconfirmed", pub_type="Original research",
         primary_category="Yeast Genetics & Cellular Stress Biology",
@@ -545,7 +567,6 @@ def defaulted(p):
     p.setdefault("topics", [])
     p.setdefault("pmcid_note", "")
     p.setdefault("extra_note", "")
-    p.setdefault("existing", False)
     return p
 
 for p in PAPERS:

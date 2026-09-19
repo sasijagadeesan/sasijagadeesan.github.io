@@ -15,6 +15,7 @@ level or naming a "lead" author.
 import csv
 import html
 import os
+import re
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +25,26 @@ from papers_data import PAPERS, SITE, ORCID  # noqa: E402
 
 def esc(s):
     return html.escape(s, quote=True)
+
+
+_PAGE_RANGE_RE = re.compile(r"^(\d+)\s*[-‐‑‒–—]\s*(\d+)$")
+
+
+def split_pages(pages):
+    """Split a page-range string into (firstpage, lastpage) for Highwire
+    citation_firstpage / citation_lastpage meta tags.
+
+    Only a genuine numeric range ("2643-2656", "4602–4618", any dash
+    variant) is split. Anything else -- a bare article number ("3874"), an
+    e-locator ("e0235033", "lqac058"), or an empty string -- is returned as
+    firstpage only, with lastpage=None. Never invents a last page.
+    """
+    if not pages:
+        return None, None
+    m = _PAGE_RANGE_RE.match(pages.strip())
+    if m:
+        return m.group(1), m.group(2)
+    return pages, None
 
 
 # ---------- CSV ----------
@@ -168,8 +189,11 @@ def citation_meta(p):
         lines.append(f'  <meta name="citation_volume" content="{p["volume"]}">')
     if p["issue"]:
         lines.append(f'  <meta name="citation_issue" content="{p["issue"]}">')
-    if p["pages"]:
-        lines.append(f'  <meta name="citation_firstpage" content="{esc(p["pages"])}">')
+    firstpage, lastpage = split_pages(p["pages"])
+    if firstpage:
+        lines.append(f'  <meta name="citation_firstpage" content="{esc(firstpage)}">')
+    if lastpage:
+        lines.append(f'  <meta name="citation_lastpage" content="{esc(lastpage)}">')
     lines.append(f'  <meta name="citation_doi" content="{p["doi"]}">')
     return "\n".join(lines)
 
@@ -354,8 +378,6 @@ def build_page(p):
 
 created = []
 for p in PAPERS:
-    if p.get("existing"):
-        continue
     outdir = os.path.join(REPO, "publications", p["slug"])
     os.makedirs(outdir, exist_ok=True)
     outpath = os.path.join(outdir, "index.html")

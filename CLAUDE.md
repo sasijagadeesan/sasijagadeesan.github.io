@@ -14,18 +14,26 @@ verifiable source.
 
 ## Source of truth
 
-`papers.csv` is the single source of truth for the publication list. To add
-a new publication:
+`scripts/papers_data.py` is the **single canonical source of truth** for
+every publication. `papers.csv`, every `publications/<slug>/index.html`
+page, `index.html`, and `sitemap.xml` are all **generated output** —
+derived from `papers_data.py` by the scripts in `scripts/` (see
+"Regeneration" below) and overwritten every time those scripts run.
+
+To add a new publication:
 
 1. Verify it (see "Verification hierarchy" below).
-2. Add one row to `papers.csv` with every column filled in, or explicitly
-   left blank with a note if a field cannot be verified.
-3. Generate/update the corresponding page under `publications/<slug>/index.html`.
-4. Add the new page's URL to `sitemap.xml`.
-5. Add a card for it to the relevant category section of `index.html`.
+2. Add a new entry to the `PAPERS` list in `scripts/papers_data.py` with
+   every field filled in, or explicitly left as `""` with a note if a
+   field cannot be verified.
+3. Run `python3 scripts/generate_pages.py` then
+   `python3 scripts/generate_homepage.py` from the repository root.
+4. Review the diff before committing.
 
-Do not hand-edit a publication page's bibliographic data without updating
-`papers.csv` to match — the two must never drift apart.
+**Never hand-edit `papers.csv`, a generated `publications/<slug>/index.html`
+page, `index.html`, or `sitemap.xml` directly** — the next regeneration run
+will silently overwrite any such edit. If a fact needs to change, change it
+in `papers_data.py` and regenerate.
 
 ## Verification hierarchy
 
@@ -45,9 +53,11 @@ metadata.
 
 Never fabricate or guess: DOI, PMID, PMCID, publication date, author list,
 author order, volume, issue, article number/pages, abstract text, or
-findings. If a field cannot be verified, leave it blank in `papers.csv` and
-omit it from the page (do not print an empty "PMID:" line). Note the gap in
-the `notes` column instead.
+findings. If a field cannot be verified, leave it as `""` in
+`scripts/papers_data.py` — the generators already omit blank fields from
+the rendered page (no empty "PMID:" line) and leave the corresponding
+`papers.csv` cell empty. Note the gap via a comment in `papers_data.py` (or
+the paper's `pmcid_note` / `extra_note` field) instead of guessing.
 
 If two sources disagree (e.g., a search snippet returns a PMCID that
 belongs to a different paper), do not pick one — leave the field blank and
@@ -172,10 +182,9 @@ To add or correct a publication:
 
 4. Review the diff (`git diff`) before committing — the generators
    overwrite `papers.csv`, `index.html`, `sitemap.xml`, and every
-   generated publication page on each run.
+   publication page on each run.
 
-The one exception is `publications/adult-human-spinal-cord-nspcs/index.html`
-(the original, hand-written page), which the generator does not touch —
-its `PAPERS` entry is marked `existing=True` and exists only so it's
-included in `papers.csv`. Keep its bibliographic data in sync with
-`papers_data.py` by hand if it ever changes.
+There is no hand-maintained exception: all 17 publication pages, including
+the original `adult-human-spinal-cord-nspcs` page, are generated from the
+same `PAPERS` entries and the same template, so none of them can drift from
+`papers_data.py`.
