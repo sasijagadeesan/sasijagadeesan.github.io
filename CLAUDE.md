@@ -71,17 +71,20 @@ flag the conflict in `notes` until it's resolved against a primary source.
 
 Every peer-reviewed paper the author co-authored gets a dedicated page —
 **author position is never a reason to exclude a paper.** Author position
-must instead be recorded accurately:
+is recorded accurately, but never displayed as a public label:
 
 - `papers.csv` → `author_position` column: `first`, `co-first`, or `middle`.
-- Every page's meta/bibliographic box includes a `role-note` line stating
-  Sasi Kumar Jagadeesan's actual role (e.g., "First author," "Co-first
-  author (with X)," or "Contributing author (Nth of M authors); this study
-  was led by [first author] et al.").
+  This is internal metadata for future automation (e.g., sorting or
+  filtering by role) — it is not rendered on any page.
+- Public pages show only the complete, correctly ordered published author
+  list. Do **not** add a "First author" / "Contributing author (Nth of M)"
+  / "co-first author" / "led by X et al." label anywhere on a page or on
+  the homepage. The author order itself is the only signal shown.
 - Narrative sections (Overview, Key Findings, Why It Matters) are always
-  written in neutral third person about "the study" / "the research team,"
-  never "I discovered" or "we led," when the author was a contributing
-  (non-first) author.
+  written in neutral third person about "the study" / "the research team"
+  — never "I discovered" or "we led" — regardless of author position, and
+  without adding explanatory authorship commentary either. Describe the
+  study, not who did how much of it.
 
 ## Research category taxonomy
 
@@ -118,8 +121,7 @@ project's objective.
 
 Every dedicated publication page must include:
 
-- Exact, verified title and author order
-- `Sasi Kumar Jagadeesan's role: ...` line
+- Exact, verified title and complete author order (no role/position label)
 - Journal, year, volume/issue/pages or article number
 - DOI (always), PMID and PMCID only when verified
 - Links to publisher, DOI, PubMed, and PMC (only for identifiers that exist)
@@ -142,9 +144,38 @@ technical reason not to.
 
 ## Regeneration
 
-The pages in this repository were originally produced by a small
-data-driven generator (a Python script driven by the same fields as
-`papers.csv`) rather than hand-written one at a time, to keep all 17+ pages
-structurally consistent. When adding several publications at once, prefer
-regenerating from a data source over hand-editing HTML directly, to avoid
-drift between pages.
+The pages in this repository are produced by a small data-driven generator
+under `scripts/`, not hand-written one at a time, so all pages stay
+structurally consistent and `papers.csv` never drifts from the HTML:
+
+- `scripts/papers_data.py` — the single source of truth: one Python dict
+  per publication (title, authors, journal, identifiers, category,
+  overview/findings/why-it-matters/questions/topics, etc.). This is what
+  you edit to add, correct, or remove a publication.
+- `scripts/generate_pages.py` — reads `papers_data.py` and writes
+  `papers.csv` plus every `publications/<slug>/index.html` page.
+- `scripts/generate_homepage.py` — reads `papers_data.py` and writes
+  `index.html` and `sitemap.xml`.
+
+To add or correct a publication:
+
+1. Verify it (see "Verification hierarchy" above).
+2. Edit the `PAPERS` list in `scripts/papers_data.py` — add a new dict or
+   fix an existing one. Leave any unverified field as `""` and note the
+   gap in that paper's data rather than guessing.
+3. From the repository root, run:
+
+   ```
+   python3 scripts/generate_pages.py
+   python3 scripts/generate_homepage.py
+   ```
+
+4. Review the diff (`git diff`) before committing — the generators
+   overwrite `papers.csv`, `index.html`, `sitemap.xml`, and every
+   generated publication page on each run.
+
+The one exception is `publications/adult-human-spinal-cord-nspcs/index.html`
+(the original, hand-written page), which the generator does not touch —
+its `PAPERS` entry is marked `existing=True` and exists only so it's
+included in `papers.csv`. Keep its bibliographic data in sync with
+`papers_data.py` by hand if it ever changes.
