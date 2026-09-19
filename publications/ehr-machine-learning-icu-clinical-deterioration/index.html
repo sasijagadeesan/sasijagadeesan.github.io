@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients | Sasi Jagadeesan</title>
+
+  <meta name="description"
+        content="Early warning scores for inpatient deterioration rely predominantly on contemporaneous vital signs and may not incorporate broader electronic health record (EHR) information. This study developed and internally validated a multi-domain EHR machine-learning model using MIMIC-IV v3">
+
+  <meta name="keywords"
+        content="clinical machine learning, electronic health records, mimic-iv, xgboost, clinical deterioration, early warning scores, news2, qsofa, shock index, mews">
+
+  <meta name="author" content="Sasi Kumar Jagadeesan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Scholar / citation metadata -->
+  <meta name="citation_title" content="Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients">
+
+  <meta name="citation_author" content="Sasi Jagadeesan">
+  <meta name="citation_author" content="Pritam Kumar Panda">
+  <meta name="citation_author" content="Ryan Vimukthie Sandarage">
+  <meta name="citation_author" content="Eve C. Tsai">
+
+  <meta name="citation_publication_date" content="2026-09-17">
+  <meta name="citation_journal_title" content="Scientific Reports">
+  <meta name="citation_doi" content="10.1038/s41598-026-71682-0">
+
+  <link rel="canonical"
+        href="https://sasijagadeesan.github.io/publications/ehr-machine-learning-icu-clinical-deterioration/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients",
+    "name": "Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients",
+    "datePublished": "2026-09-17",
+    "identifier": ["https://doi.org/10.1038/s41598-026-71682-0"],
+    "author": [
+      {"@type": "Person", "name": "Sasi Jagadeesan"},
+      {"@type": "Person", "name": "Pritam Kumar Panda"},
+      {"@type": "Person", "name": "Ryan Vimukthie Sandarage"},
+      {"@type": "Person", "name": "Eve C. Tsai"}
+    ],
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": "Scientific Reports"
+    },
+    "keywords": [
+      "Clinical machine learning",
+      "Electronic health records",
+      "MIMIC-IV",
+      "XGBoost",
+      "Clinical deterioration",
+      "Early warning scores",
+      "NEWS2",
+      "qSOFA",
+      "Shock Index",
+      "MEWS"
+    ],
+    "sameAs": ["https://doi.org/10.1038/s41598-026-71682-0", "https://www.nature.com/articles/s41598-026-71682-0"]
+  }
+  </script>
+
+
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f7f9fc; color: #1f2937; line-height: 1.65; }
+    .container { max-width: 980px; margin: auto; padding: 50px 25px; }
+    a { color: #1d4ed8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { margin-bottom: 30px; font-weight: 600; }
+    h1 { font-size: 32px; line-height: 1.25; color: #111827; }
+    h2 { margin-top: 45px; border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; color: #111827; }
+    .meta { background: white; padding: 20px 24px; border-radius: 10px; margin-top: 20px; }
+    .section { background: white; padding: 22px 25px; border-radius: 10px; margin-top: 18px; }
+    .tag { display: inline-block; background: #eef2ff; padding: 5px 10px; margin: 4px 5px 4px 0; border-radius: 6px; font-size: 14px; }
+    .caveat { background: #fffbeb; border: 1px solid #fde68a; padding: 14px 18px; border-radius: 8px; margin-top: 18px; font-size: 14px; }
+    footer { margin-top: 60px; color: #6b7280; font-size: 14px; }
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="back">
+    <a href="/">← Back to Sasi Jagadeesan publication hub</a>
+  </div>
+
+  <h1>
+    Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients
+  </h1>
+
+  <div class="meta">
+    <strong>Authors:</strong>
+    Sasi Jagadeesan, Pritam Kumar Panda, Ryan Vimukthie Sandarage, Eve C. Tsai
+    <br><br>
+    <strong>Journal:</strong> Scientific Reports
+    <br>
+    <strong>Year:</strong> 2026
+    <br>
+    <strong>DOI:</strong>
+    <a href="https://doi.org/10.1038/s41598-026-71682-0">10.1038/s41598-026-71682-0</a>
+    <br>
+    <strong>Publication type:</strong> Original research
+    <br>
+    <strong>Open access:</strong> Yes, CC BY 4.0
+  </div>
+
+  <h2>Study Overview</h2>
+
+  <div class="section">
+    <p>Early warning scores for inpatient deterioration rely predominantly on contemporaneous vital signs and may not incorporate broader electronic health record (EHR) information. This study developed and internally validated a multi-domain EHR machine-learning model using MIMIC-IV v3.1, generating 1,334,773 monitoring windows from 80,442 ICU-linked admissions via a 6-hour sliding-window framework.</p>
+    <p>The composite outcome was ICU transfer, invasive mechanical ventilation, or in-hospital mortality within 24 hours, with a prevalence of 1.96%.</p>
+  </div>
+
+  <h2>Key Findings</h2>
+
+  <div class="section">
+    <ul>
+      <li>XGBoost achieved AUROC 0.758 for the composite 24-hour deterioration outcome.</li>
+
+      <li>Comparator early warning scores performed substantially lower: modified NEWS2 AUROC 0.568, qSOFA 0.549, Shock Index 0.539, and MEWS 0.533.</li>
+
+      <li>Vital signs were the dominant predictive domain; multi-domain EHR integration improved AUROC by 0.041 over a vitals-only model.</li>
+
+      <li>At 90% sensitivity, the model generated 2.51 alerts per monitored patient-day with a positive predictive value of 2.8%.</li>
+
+      <li>After collapsing contiguous alerts into episodes, the model produced 0.52 alert episodes per patient-day, with 96.9% event-level sensitivity and episode-level precision of 5.1%.</li>
+
+      <li>The authors state that external validation and prospective operational evaluation are required before clinical use.</li>
+
+    </ul>
+  </div>
+
+  <h2>Why This Study Matters</h2>
+
+  <div class="section">
+    <p>Demonstrates that a multi-domain EHR machine-learning model can substantially outperform conventional bedside early warning scores (NEWS2, qSOFA, Shock Index, MEWS) for predicting short-term clinical deterioration in ICU-linked inpatients, while also quantifying the alert burden such a model would generate in practice.</p>
+  </div>
+
+  <h2>Scientific Questions This Paper Informs</h2>
+
+  <div class="section">
+    <ul>
+      <li>How much does incorporating multi-domain EHR data, beyond vital signs alone, improve prediction of clinical deterioration?</li>
+
+      <li>How does a machine-learning model&#x27;s AUROC translate into practical alert burden (alerts per patient-day, precision) at clinically relevant sensitivity thresholds?</li>
+
+      <li>What external validation and prospective evaluation steps are needed before such a model could be used clinically?</li>
+
+    </ul>
+  </div>
+
+  <h2>Relevant Research Topics</h2>
+
+  <div class="section">
+    <span class="tag">Clinical machine learning</span>
+    <span class="tag">Electronic health records</span>
+    <span class="tag">MIMIC-IV</span>
+    <span class="tag">XGBoost</span>
+    <span class="tag">Clinical deterioration</span>
+    <span class="tag">Early warning scores</span>
+    <span class="tag">NEWS2</span>
+    <span class="tag">qSOFA</span>
+    <span class="tag">Shock Index</span>
+    <span class="tag">MEWS</span>
+  </div>
+
+  <h2>Citation</h2>
+
+  <div class="section">
+    <p>
+      Jagadeesan S, Panda PK, Sandarage RV, Tsai EC.
+      Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients.
+      <em>Scientific Reports</em>. 2026.
+      doi:10.1038/s41598-026-71682-0.
+    </p>
+  </div>
+
+  <div class="caveat"><strong>Note:</strong> External validation and prospective operational evaluation are required before clinical use; this model has not been validated outside the MIMIC-IV internal validation described in the paper.</div>
+
+  <h2>Original Article</h2>
+
+  <div class="section">
+    <p>
+      <a href="https://www.nature.com/articles/s41598-026-71682-0">Publisher article</a> |
+      <a href="https://doi.org/10.1038/s41598-026-71682-0">DOI</a>
+    </p>
+  </div>
+
+  <footer>
+    Sasi Kumar Jagadeesan · ORCID 0000-0003-3977-5367
+  </footer>
+
+</div>
+
+</body>
+</html>
